@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Task 2. Litvinenko Nikita, 932028</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                document.getElementById("date_start_input").valueAsDate = new Date();
+                document.getElementById("date_end_input").valueAsDate = new Date();
+                $('#submit_button').click(function(){
+                    var dateStart = document.getElementById("date_start_input").valueAsDate;
+                    var dateEnd = document.getElementById("date_end_input").valueAsDate;
+                    if(dateStart > dateEnd) {
+                        $('#errors_output').val("End date is earlier than start date!");
+                    }
+                    else{
+                        var city = $("#city_select option:selected").text();
+                        var keyword = $("#keyword_input").val();
+
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <label for="city_select">Choose a city:</label>
+        <select name="city_select" id="city_select">
+            <option value="newyork">New York</option>
+            <option value="sanfrancisco">San Francisco</option>
+        </select>
+        <br><br>
+        <label for="date_start_input">Start date:</label>
+        <input type="date" id="date_start_input" name="date_start_input" min="2021-01-01" max="2021-12-31">
+        <br><br>
+        <label for="date_end_input">End date:</label>
+        <input type="date" id="date_end_input" name="date_end_input" min="2021-01-01" max="2021-12-31">
+        <br><br>
+        <input type="text" id="keyword_input" name="keyword_input" placeholder="keyword">
+        <br><br>
+        <input type='button' id='submit_button' value='Submit' />
+        <br><br>
+        <output id="errors_output" name="errors_output" ></output>
+    </body>
+</html>
